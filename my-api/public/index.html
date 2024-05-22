@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Management</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <h1 class="mt-5">Product Management</h1>
+
+        <!-- Add New Book Form -->
+        <div class="card mt-3 mb-3">
+            <div class="card-body">
+                <h5 class="card-title">Add a New Book</h5>
+                <form id="bookForm">
+                    <div class="form-group">
+                        <label for="title">Title</label>
+                        <input type="text" class="form-control" id="title" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="author">Author</label>
+                        <input type="text" class="form-control" id="author" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="published_date">Published Date</label>
+                        <input type="date" class="form-control" id="published_date" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="pages">Pages</label>
+                        <input type="number" class="form-control" id="pages" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="language">Language</label>
+                        <input type="text" class="form-control" id="language" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="category">Category</label>
+                        <input type="text" class="form-control" id="category" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Add Book</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Add New Laptop Form -->
+        <div class="card mt-3 mb-3">
+            <div class="card-body">
+                <h5 class="card-title">Add a New Laptop</h5>
+                <form id="laptopForm">
+                    <div class="form-group">
+                        <label for="brand">Brand</label>
+                        <input type="text" class="form-control" id="brand" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="model">Model</label>
+                        <input type="text" class="form-control" id="model" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="price">Price</label>
+                        <input type="number" class="form-control" id="price" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="specs">Specifications</label>
+                        <input type="text" class="form-control" id="specs" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="imageUrl">Image URL</label>
+                        <input type="text" class="form-control" id="imageUrl">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Add Laptop</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Add New Electronics Form -->
+        <div class="card mt-3 mb-3">
+            <div class="card-body">
+                <h5 class="card-title">Add a New Electronics</h5>
+                <form id="electronicsForm">
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" class="form-control" id="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="brand">Brand</label>
+                        <input type="text" class="form-control" id="brand" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="price">Price</label>
+                        <input type="number" class="form-control" id="price" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="specs">Specifications</label>
+                        <input type="text" class="form-control" id="specs" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="imageUrl">Image URL</label>
+                        <input type="text" class="form-control" id="imageUrl">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Add Electronics</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Search Bar -->
+        <div class="card mt-3 mb-3">
+            <div class="card-body">
+                <h5 class="card-title">Search Products</h5>
+                <input type="text" class="form-control" id="search" placeholder="Search by title, author, brand, or category">
+            </div>
+        </div>
+
+        <!-- Books List -->
+        <h2 class="mt-5">Books List</h2>
+        <div class="table-responsive">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Title</th>
+                        <th>Author</th>
+                        <th>Published Date</th>
+                        <th>Pages</th>
+                        <th>Language</th>
+                        <th>Category</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="booksList"></tbody>
+            </table>
+        </div>
+
+        <!-- Laptops List -->
+        <h2 class="mt-5">Laptops List</h2>
+        <div class="table-responsive">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Brand</th>
+                        <th>Model</th>
+                        <th>Price</th>
+                        <th>Specifications</th>
+                        <th>Image</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="laptopsList"></tbody>
+            </table>
+        </div>
+
+        <!-- Electronics List -->
+        <h2 class="mt-5">Electronics List</h2>
+        <div class="table-responsive">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Brand</th>
+                        <th>Price</th>
+                        <th>Specifications</th>
+                        <th>Image</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="electronicsList"></tbody>
+            </table>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            function loadBooks(query = '') {
+                $.get('/api/books', function(data) {
+                    $('#booksList').empty();
+                    const filteredBooks = data.filter(book => {
+                        const title = book.title ? book.title.toLowerCase() : '';
+                        const author = book.author ? book.author.toLowerCase() : '';
+                        const category = book.category ? book.category.toLowerCase() : '';
+                        return title.includes(query.toLowerCase()) || author.includes(query.toLowerCase()) || category.includes(query.toLowerCase());
+                    });
+                    filteredBooks.forEach(function(book) {
+                        $('#booksList').append(`
+                            <tr>
+                                <td>${book.title}</td>
+                                <td>${book.author}</td>
+                                <td>${new Date(book.published_date).toLocaleDateString()}</td>
+                                <td>${book.pages}</td>
+                                <td>${book.language}</td>
+                                <td>${book.category}</td>
+                                <td>
+                                    <button class="btn btn-sm btn-warning" onclick="editBook('${book._id}')">Edit</button>
+                                    <button class="btn btn-sm btn-danger" onclick="deleteBook('${book._id}')">Delete</button>
+                                </td>
+                            </tr>
+                        `);
+                    });
+                });
+            }
+
+            function loadLaptops(query = '') {
+                $.get('/api/laptops', function(data) {
+                    $('#laptopsList').empty();
+                    const filteredLaptops = data.filter(laptop => {
+                        const brand = laptop.brand ? laptop.brand.toLowerCase() : '';
+                        const model = laptop.model ? laptop.model.toLowerCase() : '';
+                        return brand.includes(query.toLowerCase()) || model.includes(query.toLowerCase());
+                    });
+                    filteredLaptops.forEach(function(laptop) {
+                        $('#laptopsList').append(`
+                            <tr>
+                                <td>${laptop.brand}</td>
+                                <td>${laptop.model}</td>
+                                <td>${laptop.price}</td>
+                                <td>${laptop.specs}</td>
+                                <td><img src="${laptop.imageUrl}" alt="${laptop.model}" width="100"></td>
+                                <td>
+                                    <button class="btn btn-sm btn-warning" onclick="editLaptop('${laptop._id}')">Edit</button>
+                                    <button class="btn btn-sm btn-danger" onclick="deleteLaptop('${laptop._id}')">Delete</button>
+                                </td>
+                            </tr>
+                        `);
+                    });
+                });
+            }
+
+            function loadElectronics(query = '') {
+                $.get('/api/electronics', function(data) {
+                    $('#electronicsList').empty();
+                    const filteredElectronics = data.filter(electronic => {
+                        const name = electronic.name ? electronic.name.toLowerCase() : '';
+                        const brand = electronic.brand ? electronic.brand.toLowerCase() : '';
+                        return name.includes(query.toLowerCase()) || brand.includes(query.toLowerCase());
+                    });
+                    filteredElectronics.forEach(function(electronic) {
+                        $('#electronicsList').append(`
+                            <tr>
+                                <td>${electronic.name}</td>
+                                <td>${electronic.brand}</td>
+                                <td>${electronic.price}</td>
+                                <td>${electronic.specs}</td>
+                                <td><img src="${electronic.imageUrl}" alt="${electronic.name}" width="100"></td>
+                                <td>
+                                    <button class="btn btn-sm btn-warning" onclick="editElectronics('${electronic._id}')">Edit</button>
+                                    <button class="btn btn-sm btn-danger" onclick="deleteElectronics('${electronic._id}')">Delete</button>
+                                </td>
+                            </tr>
+                        `);
+                    });
+                });
+            }
+
+            $('#bookForm').submit(function(event) {
+                event.preventDefault();
+                const book = {
+                    title: $('#title').val(),
+                    author: $('#author').val(),
+                    published_date: $('#published_date').val(),
+                    pages: $('#pages').val(),
+                    language: $('#language').val(),
+                    category: $('#category').val(),
+                };
+
+                $.ajax({
+                    url: '/api/books',
+                    type: 'POST',
+                    contentType: 'application/json',
+                    data: JSON.stringify(book),
+                    success: function() {
+                        loadBooks();
+                        $('#bookForm')[0].reset();
+                    }
+                });
+            });
+
+            $('#laptopForm').submit(function(event) {
+                event.preventDefault();
+                const laptop = {
+                    brand: $('#brand').val(),
+                    model: $('#model').val(),
+                    price: $('#price').val(),
+                    specs: $('#specs').val(),
+                    imageUrl: $('#imageUrl').val(),
+                };
+
+                $.ajax({
+                    url: '/api/laptops',
+                    type: 'POST',
+                    contentType: 'application/json',
+                    data: JSON.stringify(laptop),
+                    success: function() {
+                        loadLaptops();
+                        $('#laptopForm')[0].reset();
+                    }
+                });
+            });
+
+            $('#electronicsForm').submit(function(event) {
+                event.preventDefault();
+                const electronic = {
+                    name: $('#name').val(),
+                    brand: $('#brand').val(),
+                    price: $('#price').val(),
+                    specs: $('#specs').val(),
+                    imageUrl: $('#imageUrl').val(),
+                };
+
+                $.ajax({
+                    url: '/api/electronics',
+                    type: 'POST',
+                    contentType: 'application/json',
+                    data: JSON.stringify(electronic),
+                    success: function() {
+                        loadElectronics();
+                        $('#electronicsForm')[0].reset();
+                    }
+                });
+            });
+
+            window.editBook = function(id) {
+                $.get('/api/books/' + id, function(book) {
+                    $('#updateBookId').val(book._id);
+                    $('#updateTitle').val(book.title);
+                    $('#updateAuthor').val(book.author);
+                    $('#updatePublishedDate').val(book.published_date);
+                    $('#updatePages').val(book.pages);
+                    $('#updateLanguage').val(book.language);
+                    $('#updateCategory').val(book.category);
+                    $('#updateBookModal').modal('show');
+                });
+            };
+
+            window.editLaptop = function(id) {
+                $.get('/api/laptops/' + id, function(laptop) {
+                    $('#updateLaptopId').val(laptop._id);
+                    $('#updateBrand').val(laptop.brand);
+                    $('#updateModel').val(laptop.model);
+                    $('#updatePrice').val(laptop.price);
+                    $('#updateSpecs').val(laptop.specs);
+                    $('#updateImageUrl').val(laptop.imageUrl);
+                    $('#updateLaptopModal').modal('show');
+                });
+            };
+
+            window.editElectronics = function(id) {
+                $.get('/api/electronics/' + id, function(electronic) {
+                    $('#updateElectronicsId').val(electronic._id);
+                    $('#updateName').val(electronic.name);
+                    $('#updateBrand').val(electronic.brand);
+                    $('#updatePrice').val(electronic.price);
+                    $('#updateSpecs').val(electronic.specs);
+                    $('#updateImageUrl').val(electronic.imageUrl);
+                    $('#updateElectronicsModal').modal('show');
+                });
+            };
+
+            window.deleteBook = function(id) {
+                $.ajax({
+                    url: '/api/books/' + id,
+                    type: 'DELETE',
+                    success: function() {
+                        loadBooks();
+                    },
+                    error: function(err) {
+                        console.error('Error deleting book:', err);
+                    }
+                });
+            };
+
+            window.deleteLaptop = function(id) {
+                $.ajax({
+                    url: '/api/laptops/' + id,
+                    type: 'DELETE',
+                    success: function() {
+                        loadLaptops();
+                    },
+                    error: function(err) {
+                        console.error('Error deleting laptop:', err);
+                    }
+                });
+            };
+
+            window.deleteElectronics = function(id) {
+                $.ajax({
+                    url: '/api/electronics/' + id,
+                    type: 'DELETE',
+                    success: function() {
+                        loadElectronics();
+                    },
+                    error: function(err) {
+                        console.error('Error deleting electronics:', err);
+                    }
+                });
+            };
+
+            $('#search').on('input', function() {
+                const query = $(this).val();
+                loadBooks(query);
+                loadLaptops(query);
+                loadElectronics(query);
+            });
+
+            loadBooks();
+            loadLaptops();
+            loadElectronics();
+        });
+    </script>
+</body>
+</html>
